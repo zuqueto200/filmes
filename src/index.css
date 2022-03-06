@@ -16,7 +16,7 @@ body{
 }
 .todos_card{
   display: flex;
-  flex-wrap: wrap;
+   
  }
 
 .image_card{
@@ -26,3 +26,7 @@ body{
   height: 240px;
 
 } 
+.genero_sub{
+  display: flex;
+  
+}
