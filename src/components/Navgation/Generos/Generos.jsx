@@ -1,5 +1,5 @@
 import React, { useCallback, useEffect, useState } from "react";
-import { CriaFilmeGenero } from "./GenerosFilmes";
+import { GenerosFilmes } from "./GenerosFilmes";
 
 
 
@@ -14,6 +14,8 @@ export function Generos() {
         fetch(API_GENEROS).then((res) => res.json()).then((data) => {
             set_genero_filmes(data.genres)
         })
+       // .then(() => console.log('menu genero OK'))
+        .catch(() => console.log('sem resposta (api menu genero)'))
     }
 
 
@@ -27,13 +29,12 @@ export function Generos() {
         <>
             {genero_filmes.map((genero) =>
 
-                <div key={genero.id} >
-
+                <div key={genero.id} > 
                     <div className='containerTitulo' >
                         <p>{genero.name}</p>
                     </div>
 
-                    <CriaFilmeGenero generoID={genero.id} />
+                    <GenerosFilmes generoID={genero.id} />
                 </div>
             )
             }

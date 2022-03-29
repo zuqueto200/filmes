@@ -1,0 +1,38 @@
+.top{
+    display: flex;
+    background-color: black;
+    height: 70px;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 40px;
+}
+.top p {
+  margin: 0;
+  
+  color: antiquewhite;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  font-size: 30px;
+  font-weight: 900;
+  min-width: 280px;
+  
+}
+input{
+  height: 30px;
+  padding: 5px 0 2px 15px;
+  font-size: 20px;
+  border-radius: 20px;
+
+}
+.containerBusca{
+  background-color: rgb(77, 100, 100);
+  animation: go-back 1s  ;
+}
+
+@keyframes go-back {
+  0% {
+      transform: translatey(-600px);
+  }
+  100% {
+      transform: translatey(0);
+  } 
+}

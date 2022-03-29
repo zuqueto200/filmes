@@ -1,19 +1,8 @@
 body {
-  background-color: rgb(1, 0, 15);
+  background-color: rgb(20, 45, 112);
   margin: 0;
   padding: 0;
-  overflow-x: hidden;
+  
 }
 
-.navbar {
-  display: flex;
-  justify-content: center;
-  height: 50px;
-  background-color: rgb(40, 41, 41);
-}
-.navbar p {
-  color: antiquewhite;
-  font-family: Verdana, Geneva, Tahoma, sans-serif;
-  font-weight: 900;
-}
  

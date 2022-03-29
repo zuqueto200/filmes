@@ -1,0 +1,132 @@
+body {
+   
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  height: 100%; 
+}
+.backContainerModal {
+  position: fixed;
+  background: rgba(0, 0, 0, 0.795);
+  width: 100%;
+  height: 100%;
+  left: 0;
+  top: 0;
+}
+
+.backgraundImageModal {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  z-index: 10;
+  filter: brightness(0.3);
+}
+
+.containerModal {
+  position: fixed;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  width: 1000px;
+  height: 560px;
+  
+  /* border: solid;
+  border-image: linear-gradient(45deg, rgba(255, 0, 0, 0), rgb(255, 0, 0));
+  border-image-slice: 1; */
+}
+.contentModal {
+  display: grid;
+  grid-template-columns: auto 760px;
+  
+  grid-template-rows: 15%;
+  
+  position: absolute;
+  
+  z-index: 20;
+  width: 100%;
+  height: 100%;
+}
+
+.BotaoVoltarModal {
+  top: -25px;
+  right: -25px;
+  z-index: 110;
+  position: relative;
+  float: right;
+  width: 50px;
+  height: 50px;
+  border-radius: 25px;
+  background-color: red;
+  border: solid 4px black;
+  font-size: 30px;
+}
+
+.imageModal {
+  align-self: flex-start;
+  
+  margin: 0 0 0 25px;
+  width: 200px;
+  height: 300px;
+  
+  box-shadow: 0 0 5px white;
+}
+
+.informacaoModal {
+  text-align: justify;
+  padding: 0 20px 20px 20px;
+  font-size: 30px;
+  color: aliceblue;
+}
+.sinopseModal {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 6;
+  -webkit-box-orient: vertical; 
+}
+.sinopseModalVerMais::after {
+  display: block; 
+  color: chartreuse;
+  content:'ver mais';
+
+
+}
+
+
+
+
+
+
+.tituloModal {
+  padding: 0 0 0 30px;
+  grid-column-start: 1;
+  grid-column-end: 3;
+  align-self: center;
+  color: aliceblue;
+  margin: 0;
+  font-size: 35px;
+  background-image: linear-gradient(
+    to right,
+    rgba(0, 0, 0, 0.5),
+    rgba(0, 0, 0, 0)
+    );
+  }
+
+
+ 
+
+
+    .informacaoModal p {
+  margin: 0 0 20px 0;
+  font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
+    "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
+    
+  text-shadow: 0 0 3px black;
+  font-size: 20px;
+}
+table{
+position: relative;
+width: 100%;
+z-index: 20;
+top: 830px;
+}
