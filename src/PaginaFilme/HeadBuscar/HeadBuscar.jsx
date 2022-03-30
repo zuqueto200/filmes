@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react"
 import BuildHome from "../BuildHome"
+import { Paginacao } from "../Paginacao/Paginacao"
 import "./style.css"
 
 
@@ -10,19 +11,26 @@ import "./style.css"
 export function HeadBuscar(props) {
     const [palavraChave, setPalavraChave] = useState('')
     const [resBusca, setResBusca] = useState([])
+    const [offset, setOffset] = useState(1)
+    const [quantidade, setQuantidade] = useState(0)
 
-    const searchInput = props.BASE_URL + '/search/movie?' + props.API_KEY + '&language=pt-BR&query=' + palavraChave + '&page=1&include_adult=false'
+
+    const searchInput = props.BASE_URL + '/search/movie?' + props.API_KEY + '&language=pt-BR&query=' + palavraChave + '&page=' + offset + '&include_adult=false'
 
 
     function resultadoBusca() {
         if (palavraChave.length > 0) {
-          
+
             setTimeout(() => {
-                fetch(searchInput).then((res) => res.json()).then(data =>
-                    setResBusca(data.results))
+                fetch(searchInput).then((res) => res.json()).then(data => {
+
+
+                    setQuantidade(data)
+                    setResBusca(data.results)
+                })
                     //.then(() => console.log('campo busca OK'))
                     .catch(erro => console.log('sem resposta (campo busca)', erro))
-           }, 2000);
+            }, 500);
 
 
         } else { setResBusca([]) }
@@ -32,9 +40,11 @@ export function HeadBuscar(props) {
 
         resultadoBusca()
 
+            console.log(palavraChave)
+    }, [palavraChave, offset])
 
-    }, [palavraChave])
-
+    const total = quantidade.total_pages
+     
 
 
 
@@ -51,17 +61,23 @@ export function HeadBuscar(props) {
                     value={palavraChave}
                     onChange={(e) => setPalavraChave(e.target.value)} />
             </div>
-{/* 
-            <div className="containerBusca">
 
-            <div className="containerTitulo">
-                {palavraChave && <p>Resultado</p>}
+            <div className={palavraChave ? "containerBusca" : "containerBuscaNone"}>
+                     
+
+                <div className="containerTitulo">
+                    { <p>{quantidade.total_results} Filmes Encontrados</p>}
+
+
+                </div>
+                <BuildHome filmesDescobrir={resBusca} />
+                <Paginacao total={total} offset={offset} setOffset={setOffset}/>
+
+
             </div>
 
-            <BuildHome filmesDescobrir={resBusca} />
 
-            </div> */}
-            
         </>
+
     )
 }
