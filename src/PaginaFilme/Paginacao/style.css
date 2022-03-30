@@ -1,0 +1,22 @@
+.containerPaginacao {
+  display: flex;
+  justify-content: center;
+  margin: 20px;
+}
+.paginacao {
+  color: rgb(0, 0, 0);
+  font-size: 25px;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  background-color: rgb(109, 109, 109);
+  min-width: 25px;
+  min-height: 25px;
+  padding: 10px  ;
+  text-align: center;
+  margin: 0 8px;
+  border: solid black 1px;
+}
+.paginacao:hover {
+    background-color: rgb(1, 71, 1);
+    color: white;
+    cursor: pointer;
+}

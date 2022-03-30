@@ -1,12 +1,11 @@
 @import url("https://fonts.googleapis.com/css2?family=Baloo+Bhaijaan+2:wght@400;600&display=swap");
-
+ 
 .containerTitulo p {
   display: inline-block;
   padding: 0 8px 0 10px;
-  margin: 30px 0 0 20px;
-  width: 150px;
+  margin: 30px 0 0 20px; 
   color: rgb(255, 255, 255);
-  font-size: 20px;
+  font-size: 30px;
   font-family: "Baloo Bhaijaan 2", cursive;
   border-left: solid 2px wheat;
   border-bottom: solid 2px wheat;
@@ -16,27 +15,50 @@
 .containerDescobrir {
   display: flex;
 }
- 
+
+.containerImage p{
+  margin: 0;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  padding: 0 0 10px 10px;
+  color: white;
+  white-space: nowrap; 
+  width: 180px; 
+  overflow: hidden;
+  text-overflow: ellipsis; 
+}
+
+.containerImage {
+  
+  display: block;
+   
+  margin: 10px;
+  border: solid rgba(255, 255, 255, 0.171) 1px;
+  transition: transform 0.3s;
+  
+}
 .containerImage img {
   display: flex;
   width: 190px;
   height: 300px;
   margin: 8px;
-  transition: transform 0.3s;
+  cursor: pointer;
+  
 }
-.containerImage img:hover,
-.containerImage img:focus {
+.containerImage:hover,
+.containerImage:focus {
   filter: brightness(1.5);
-  filter: contrast(1.5);
-  box-shadow: 0 0 30px rgb(0, 0, 0);
-  transform: scale(115%);
+  filter: contrast(1.5); 
+  transform: scale(103%);
 }
-
-.container {
+.container{
   display: flex;
-  overflow-x: auto;
-  align-items: center; 
-  overflow: visible;
+  justify-content: center;
+   
+}
+.content {
+  display: flex; 
+  justify-content:center;
+  max-width: 1180px;
+  flex-wrap:wrap;
   
 } 
- 

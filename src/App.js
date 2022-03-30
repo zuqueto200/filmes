@@ -18,10 +18,9 @@ export default function App() {
 
 
     <>
-      <Catalogo/>
       <HeadBuscar BASE_URL={BASE_URL} API_KEY={API_KEY}/>
       <Lancamentos />
-      <Generos />
+      {/* <Generos /> */}
 
     </>
 

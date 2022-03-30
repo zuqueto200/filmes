@@ -1,5 +1,6 @@
 import React, { useEffect } from "react";
 import { Table } from "../Table/Table";
+import ShowMore from 'react-show-more';
 import './style.css';
 
 
@@ -7,21 +8,6 @@ import './style.css';
 
 export function Modal(props) {
     const filme = props.filme
-
-
-
-    useEffect(() => {
-
-        if (filme.overview.length > 400) {
-              document.getElementsByClassName('sinopseModal')[0].classList.add('sinopseModalVerMais')
-            
-        }
-
-    }, [])
-
-
-
-
 
     return (
 
@@ -45,11 +31,16 @@ export function Modal(props) {
                         <p className="imdbModal"><strong>IMDB:</strong>{filme.vote_average}</p>
                         <p className="dataLancamentoModal"><strong>Data de Lançamento:</strong>{filme.release_date}</p>
                         <p className="generoModal"><strong>Genero:</strong> {filme.genre_ids}</p>
-                        <p className="sinopseModal"><strong>Sinopse:</strong> {filme.overview} </p>
 
+                        <ShowMore
+                            lines={3}
+                            more='Ver Mais'
+                            less='Ver Menos'
+                            anchorClass=''
+                        >{filme.overview}</ShowMore>
                     </div>
-                </div>
                 <Table filme={filme} />
+                </div>
             </div>
         </div>
 

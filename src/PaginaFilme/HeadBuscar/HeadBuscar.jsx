@@ -51,7 +51,7 @@ export function HeadBuscar(props) {
                     value={palavraChave}
                     onChange={(e) => setPalavraChave(e.target.value)} />
             </div>
-
+{/* 
             <div className="containerBusca">
 
             <div className="containerTitulo">
@@ -60,11 +60,8 @@ export function HeadBuscar(props) {
 
             <BuildHome filmesDescobrir={resBusca} />
 
-            </div>
-
-
-
-
+            </div> */}
+            
         </>
     )
 }
