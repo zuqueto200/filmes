@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react"
-import BuildHome from "../../../PaginaFilme/BuildHome"
+import BuildHome from "../Home/BuildHome"
+ 
 
 export function GenerosFilmes(props) {
   const generoID = props.generoID

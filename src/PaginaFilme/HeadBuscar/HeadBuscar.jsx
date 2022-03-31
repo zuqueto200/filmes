@@ -1,5 +1,7 @@
 import { useEffect, useState } from "react"
-import BuildHome from "../BuildHome"
+import BuildHome from "../Home/BuildHome"
+ 
+import { Home } from "../Home/Home"
 import { Paginacao } from "../Paginacao/Paginacao"
 import "./style.css"
 
@@ -40,11 +42,11 @@ export function HeadBuscar(props) {
 
         resultadoBusca()
 
-            console.log(palavraChave)
+
     }, [palavraChave, offset])
 
     const total = quantidade.total_pages
-     
+
 
 
 
@@ -61,21 +63,20 @@ export function HeadBuscar(props) {
                     value={palavraChave}
                     onChange={(e) => setPalavraChave(e.target.value)} />
             </div>
+            {palavraChave ?
 
-            <div className={palavraChave ? "containerBusca" : "containerBuscaNone"}>
-                     
+                <>
 
-                <div className="containerTitulo">
-                    { <p>{quantidade.total_results} Filmes Encontrados</p>}
+                    <div className="containerTitulo">
+                        {<p>{quantidade.total_results} Filmes Encontrados</p>}
 
+                    </div>
+                    <BuildHome filmesDescobrir={resBusca} />
+                    <Paginacao total={total} offset={offset} setOffset={setOffset} />
 
-                </div>
-                <BuildHome filmesDescobrir={resBusca} />
-                <Paginacao total={total} offset={offset} setOffset={setOffset}/>
+                </>
 
-
-            </div>
-
+                : <Home />}
 
         </>
 

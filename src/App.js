@@ -1,8 +1,6 @@
-import './index.css'; 
-import { Generos } from './components/Navgation/Generos/Generos';
-import { Lancamentos } from './components/Navgation/Lancamentos';
+import './index.css';
 import { HeadBuscar } from './PaginaFilme/HeadBuscar/HeadBuscar';
-import { Catalogo } from './PaginaFilme/Catalogo/Catalogo';
+import { Generos } from './PaginaFilme/Generos/Generos';
 
 
 export default function App() {
@@ -18,9 +16,9 @@ export default function App() {
 
 
     <>
-      <HeadBuscar BASE_URL={BASE_URL} API_KEY={API_KEY}/>
-      <Lancamentos />
-      {/* <Generos /> */}
+      <HeadBuscar BASE_URL={BASE_URL} API_KEY={API_KEY} />
+      {/* <Home/> */}
+      {/* <Generos/> */}
 
     </>
 

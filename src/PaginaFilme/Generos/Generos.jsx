@@ -1,6 +1,6 @@
 import React, { useCallback, useEffect, useState } from "react";
 import { GenerosFilmes } from "./GenerosFilmes";
-
+ 
 
 
 
