@@ -1,0 +1,20 @@
+body {
+  position: absolute;
+}
+.menu {
+  display: flex;
+  position: relative;
+  color: aqua;
+  border: solid white;
+  flex-direction: column;
+  float: inline-start;
+}
+
+.menu ul {
+  color: aliceblue;
+}
+li {
+  justify-content: center;
+  margin: 2px;
+  color: aliceblue;
+}

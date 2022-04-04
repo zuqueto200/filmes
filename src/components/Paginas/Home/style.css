@@ -50,7 +50,7 @@
   filter: contrast(1.5); 
   transform: scale(103%);
 }
-.container{
+.container {
   display: flex;
   justify-content: center;
    
