@@ -1,21 +1,28 @@
-.containerPaginacao {
-  display: flex;
-  justify-content: center;
-  margin: 20px;
-}
-ul {
+ 
+.pages{
   display: flex;
   justify-content: center;
 }
-li {
+ul, .listPage  {
   list-style: none;
+  padding: 0;
 }
-
-.page-active{ 
-  background-color: rgb(1, 71, 1);
-  color: white;
+ 
+.bt_paginacao_ativo{ 
+    color: rgb(0, 0, 0);
+  font-size: 13px;
+  font-weight: 800;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  background-color:darkgreen;
+  min-width: 30px;
+  min-height: 30px;
+  padding: 5px;
+  text-align: center;
+  margin: 0 5px;
+  border: solid black 1px;
+  
 }
-button {
+.bt_paginacao {
   color: rgb(0, 0, 0);
   font-size: 13px;
   font-weight: 800;
@@ -28,8 +35,8 @@ button {
   margin: 0 5px;
   border: solid black 1px;
 }
-button:hover {
-  background-color: rgb(1, 71, 1);
+.bt_paginacao:hover {
   
+  background-color: darkgreen;
   cursor: pointer;
 }

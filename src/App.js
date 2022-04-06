@@ -16,10 +16,7 @@ export default function App(props) {
     <> 
     
       <Header/>
-      <Home
-        BASE_URL={BASE_URL}
-        API_KEY={API_KEY}
-        />
+      
       {/* <Home/> */}
         
       {/* <GenerosFilmes/>  */}

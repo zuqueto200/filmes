@@ -26,21 +26,21 @@ export function Table(props) {
                         <td>DVD - Rip</td>
                         <td>20 GB</td>
                         <td>MP4</td>
-                        <td><button>BAIXAR</button></td>
+                        <td><button className="bt_baixar_tabela">BAIXAR</button></td>
                     </tr>
                     <tr>
                         <td>1080p</td>
                         <td>BLU - RAY</td>
                         <td>12.50 GB</td>
                         <td>MKV</td>
-                        <td><button>BAIXAR</button></td>
+                        <td><button className="bt_baixar_tabela">BAIXAR</button></td>
                     </tr>
                     <tr>
                         <td>720p</td>
                         <td>CAM</td>
                         <td>20 GB</td>
                         <td>AVI</td>
-                        <td><button>BAIXAR</button></td>
+                        <td><button className="bt_baixar_tabela">BAIXAR</button></td>
                     </tr>
 
 
@@ -65,21 +65,21 @@ export function Table(props) {
         <td>DVD - Rip</td>
         <td>20 GB</td>
         <td>MP4</td>
-        <td><button>BAIXAR</button></td>
+        <td><button className="bt_baixar_tabela">BAIXAR</button></td>
     </tr>
     <tr>
         <td>1080p</td>
         <td>BLU - RAY</td>
         <td>12.50 GB</td>
         <td>MKV</td>
-        <td><button>BAIXAR</button></td>
+        <td><button className="bt_baixar_tabela">BAIXAR</button></td>
     </tr>
     <tr>
         <td>720p</td>
         <td>CAM</td>
         <td>20 GB</td>
         <td>AVI</td>
-        <td><button>BAIXAR</button></td>
+        <td><button className="bt_baixar_tabela">BAIXAR</button></td>
     </tr>
 
 

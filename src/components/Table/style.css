@@ -28,7 +28,7 @@ table tr:hover {
   background-color: rgba(78, 78, 78, 0.39);
 }
 
-table button{
+.bt_baixar_tabela{
   border: none;
   width: 50%;
   height: 30px;
@@ -36,7 +36,7 @@ table button{
   color: rgb(112, 112, 250);
   font-weight: 600;
 }
-table button:hover {
+.bt_baixar_tabela:hover {
   background:#08730c;
   color: white;
   

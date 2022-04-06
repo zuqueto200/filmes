@@ -1,5 +1,8 @@
 import { useEffect, useState } from 'react'
- import './style.css'
+import { IoMdMenu } from 'react-icons/io'
+import { IoMdClose } from 'react-icons/io'
+
+import './style.css'
 
 
 
@@ -47,17 +50,25 @@ export function Menu(props) {
 
         <>
 
+            <button
+                className="bt_menu"
+                onClick={btPressMenu}>
+                {botaoClicadoMenu ? <IoMdClose className="icon_menu" /> : <IoMdMenu className="icon_menu" />}
 
-            <button onClick={btPressMenu}>{botaoClicadoMenu ? "X" : "MENU"}</button>
+
+            </button>
+
+
+
             {botaoClicadoMenu && (
                 <div className='menu'>
 
                     {generos.map((gene) =>
 
-                        <button
+                        <button className='bt_genero_menu'
                             value={gene.id}
                             onClick={() => apiGeneros(gene.id)
-                           
+
                             }
                         >{gene.name}
                         </button>
@@ -67,12 +78,11 @@ export function Menu(props) {
 
                 </div>)}
 
-                {/* <BuildHome filmesDescobrir={filmes_generos}/> */}
+            {/* <BuildHome filmesDescobrir={filmes_generos}/> */}
         </>
     )
-} 
+}
 
 
 
 
- 

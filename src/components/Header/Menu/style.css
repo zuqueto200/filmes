@@ -1,20 +1,33 @@
-body {
-  position: absolute;
+.icon_menu {
+  min-width: 50px;
+  min-height: 50px;
+  color: rgb(179, 255, 0);
+  background-color: rgba(0, 255, 255, 0);
 }
-.menu {
+.bt_menu{
+  background-color: rgba(250, 235, 215, 0);
+  border: none;
+}
+.menu{
   display: flex;
-  position: relative;
-  color: aqua;
-  border: solid white;
   flex-direction: column;
-  float: inline-start;
+  align-self:flex-start;
+  padding: 0;
+  margin: 0;
+  z-index:1000;
+    
+   
 }
+.bt_genero_menu{
+  border: none;
+  border-bottom: solid 1px black;
+  background-color: rgba(0, 0, 0, 0.11);
+   color: rgb(255, 255, 255);
+  padding: 5px 25px;
+  font-weight: 600;
 
-.menu ul {
-  color: aliceblue;
 }
-li {
-  justify-content: center;
-  margin: 2px;
-  color: aliceblue;
+.bt_genero_menu:hover{
+  
+  background-color: rgba(6, 253, 6, 0.233);
 }

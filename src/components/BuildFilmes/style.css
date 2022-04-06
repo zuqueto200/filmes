@@ -1,0 +1,55 @@
+.container {
+  display: flex;
+  justify-content: center;
+}
+.content {
+  justify-content: center;
+ 
+}
+
+.contentTitulo {
+  color: white;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  font-weight: 900;
+  font-size: large;
+  margin: 8px;
+}
+
+.contentBuild {
+  display: flex;
+  flex-wrap: wrap;
+  max-width: 1180px; 
+  justify-content: center;
+  
+}
+
+.contentImageBuild {
+  display: block;
+  margin: 10px;
+  border: solid rgba(255, 255, 255, 0.171) 1px;
+  transition: transform 0.3s;
+}
+.contentImageBuild img {
+  display: flex;
+  width: 190px;
+  height: 300px;
+  margin: 8px;
+  cursor: pointer;
+}
+.contentImageBuild p {
+  margin: 0;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  padding: 0 0 10px 10px;
+  color: white;
+  white-space: nowrap;
+  width: 180px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.contentImageBuild:hover,
+.contentImageBuild:focus {
+  filter: brightness(1.5);
+  filter: contrast(1.5);
+  transform: scale(103%);
+}
