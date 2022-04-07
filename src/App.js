@@ -1,6 +1,12 @@
 import './index.css';
 import { Home } from './components/Paginas/Home'
 import { Header } from './components/Header';
+import { Menu } from './components/Header/Menu/Menu';
+import { FilmesProvider } from './context/filmesContext';
+import { OffsetProvider } from './context/offsetContext';
+import { PaginasTotalProvider } from './context/paginasTotalContext';
+import { Paginacao } from './components/Paginacao';
+import { PalavraChaveProvider } from './context/palavraChaveContext';
     
 
 export default function App(props) {
@@ -15,8 +21,22 @@ export default function App(props) {
 
     <> 
     
+    <FilmesProvider>
+      <OffsetProvider>
+        <PaginasTotalProvider>
+        <PalavraChaveProvider>
+
       <Header/>
-      
+       
+       
+        </PalavraChaveProvider>
+        </PaginasTotalProvider>
+      </OffsetProvider>
+    </FilmesProvider>
+     
+
+
+
       {/* <Home/> */}
         
       {/* <GenerosFilmes/>  */}

@@ -1,33 +1,33 @@
 import { useState, useCallback, useEffect } from "react"
+import { useFilmes } from "../../context/filmesContext"
+import { usePaginasTotal } from "../../context/paginasTotalContext"
 import { Header } from "../Header"
 import { Menu } from "../Header/Menu/Menu"
 import { Modal } from "../Modal/Modal"
 import { Paginacao } from "../Paginacao"
 import { Home } from "../Paginas/Home"
 import './style.css'
-
+ 
 export function BuildFilmes(props) {
+
+    const {filmes, setFilmes} = useFilmes([])
+    const {paginasTotal, setPaginasTotal} = usePaginasTotal(1)
 
     const [filmeClick, setfilmeClick] = useState([])
     const [clickOnOff, setclickOnOff] = useState(false)
-
-
 
     function filmeDetalhe(filme) {
         setfilmeClick(filme)
         setclickOnOff(true)
     }
 
-
-
+  
 
     return (
         <>
 
 
-            <Menu />
-
-            <div className="container">
+ <div className="container">
 
                 <div className="content">
 
@@ -36,7 +36,7 @@ export function BuildFilmes(props) {
 
                     <div className='contentBuild' >
 
-                        {props.filmes.map((filme) =>
+                        {filmes.map((filme) =>
 
                             < div className='contentImageBuild' key={filme.id} onClick={() => filmeDetalhe(filme)}>
 
@@ -49,14 +49,12 @@ export function BuildFilmes(props) {
 
 
                     </div>
-                    {props.totalHome ? (
 
-                        <Paginacao
-                            offset={props.offsetHome}
-                            setOffset={props.setOffsetHome}
-                            total={props.totalHome} />
+                    {paginasTotal ? (
 
-                    ): null}
+                        <Paginacao />
+
+                    ) : null}
                 </div>
 
             </div>

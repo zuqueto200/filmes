@@ -1,60 +1,46 @@
-import React, { useEffect, useState } from "react";
-import './style.css'
+// import React, { useEffect, useState } from "react";
+// import './style.css'
 
-import { BuildFilmes } from "../../BuildFilmes"
-import { Menu } from "../../Header/Menu/Menu";
-
-
-export function Home(props) {
-    const [filmes, set_filmes] = useState([])
-    const [offsetHome, setOffsetHome] = useState(1)
+// import { BuildFilmes } from "../../BuildFilmes"
+// import { Menu } from "../../Header/Menu/Menu";
 
 
-
-    const urlFilmes = 'https://api.themoviedb.org/3/discover/movie?api_key=045e6ecc0a0745e720f0cc5a7c2f7a90&page=' + offsetHome + '&language=pt-BR'
+// export function Home(props) {
+//     const [filmes, set_filmes] = useState([])
+//     const [offsetHome, setOffsetHome] = useState(1)
 
 
 
 
 
+//     useEffect(() => {
+//         apiHome()
 
-    function apiHome() {
-        fetch(urlFilmes).then((res) => res.json()).then(data => {
-            set_filmes(data.results)
-        })
-            //.then(() => console.log('apiHome OK'))
-            .catch(erro => console.log('sem resposta apiHome', erro))
-    }
+//     }, [offsetHome])
 
-    useEffect(() => {
-        apiHome()
-
-    }, [offsetHome])
-
-    const totalHome = 500 // quantidade // so puxa 500 paginas
+//     const totalHome = 500 // quantidade // so puxa 500 paginas
 
 
-    return (
-        <>
+//     return (
+//         <>
 
-            
-
-
-                    <BuildFilmes
-                        filmes={filmes}
-                        totalHome={totalHome}
-                        offsetHome={offsetHome}
-                        setOffsetHome={setOffsetHome}
-                        contentTitulo={'FILMES MAIS POPULARES'}
-
-
-
-                    />
                
 
-           
-            {/* <Paginacao   /> */}
+//             <BuildFilmes
+//                 filmes={filmes}
+//                 totalHome={totalHome}
+//                 offsetHome={offsetHome}
+//                 setOffsetHome={setOffsetHome}
+//                 contentTitulo={'FILMES MAIS POPULARES'}
 
-        </>
-    )
-}
+
+
+//             />
+
+
+
+//             {/* <Paginacao   /> */}
+
+//         </>
+//     )
+// }

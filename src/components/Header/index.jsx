@@ -4,15 +4,26 @@ import { Home } from "../Paginas/Home"
 
 import "./style.css"
 import { Menu } from "./Menu/Menu"
+import { useFilmes } from "../../context/filmesContext"
+import { useOffset } from "../../context/offsetContext"
+import { usePaginasTotal } from "../../context/paginasTotalContext"
+import { usePalavraChave } from "../../context/palavraChaveContext"
+ 
 
 
-export function Header(props) {
+export function Header() {
 
-    const [palavraChave, setPalavraChave] = useState('')
+    const { filmes, setFilmes } = useFilmes([])
+    const { offset, setOffset } = useOffset(1)
+    const { paginasTotal, setPaginasTotal } = usePaginasTotal(1)
+    const { palavraChave, setPalavraChave } = usePalavraChave('')
 
-    const [filmes, set_filmes] = useState([])
-    const [offsetHome, setOffsetHome] = useState(1)
-    const [totalHome, setTotalHome] = useState(1)
+
+
+
+    // const [filmes, set_filmes] = useState([])
+    // const [offsetHome, setOffsetHome] = useState(1)
+
 
 
 
@@ -20,24 +31,19 @@ export function Header(props) {
 
     const handleBusca = function () {
 
-        
 
-        const searchInput = 'https://api.themoviedb.org/3/search/movie?api_key=045e6ecc0a0745e720f0cc5a7c2f7a90&language=pt-BR&query='+palavraChave+'&page='+offsetHome+'&include_adult=false'
 
+        const searchInput = 'https://api.themoviedb.org/3/search/movie?api_key=045e6ecc0a0745e720f0cc5a7c2f7a90&language=pt-BR&query=' + palavraChave + '&page=' + offset + '&include_adult=false'
 
         // FAZER PESQUISA POR AUTAL PRIMEIRO
-
-
-
-
 
         if (palavraChave.length > 0) {
 
             fetch(searchInput).then((res) => res.json()).then(data => {
 
-                set_filmes(data.results)
-                setTotalHome(data.total_pages)
-                console.log(data)
+                setFilmes(data.results)
+                setPaginasTotal(data.total_pages)
+
 
             }).catch((err) => {
                 console.log(err, ' erro na busca')
@@ -46,13 +52,15 @@ export function Header(props) {
         }
     }
 
-
- 
-
     useEffect(() => {
         handleBusca()
- console.log(filmes)
-    }, [palavraChave, offsetHome])
+
+
+
+    }, [ palavraChave, offset, paginasTotal ])
+
+
+
 
 
     function press(e) {
@@ -63,11 +71,10 @@ export function Header(props) {
         //não pode usar esses caracters na busca devido a API
     }
 
-
     return (
         <>
             <div className="top">
-              
+
                 <p>Filmes Torrent</p>
 
                 <input
@@ -80,17 +87,10 @@ export function Header(props) {
 
                 />
             </div>
-           
 
-            {palavraChave ? (
-                <BuildFilmes
-                    filmes={filmes}
-                    totalHome={totalHome}
-                    offsetHome={offsetHome}
-                    setOffsetHome={setOffsetHome}
-                    contentTitulo={totalHome + ' RESULTADO ENCONTRADO'}
 
-                />) : <Home />}
+            <Menu />
+            <BuildFilmes />
 
         </>
 

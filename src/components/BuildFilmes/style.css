@@ -7,11 +7,12 @@
  
 }
 
-.contentTitulo {
-  color: white;
+.contentTitulo { 
+   
+  color: rgba(255, 255, 255, 0.322);
   font-family: Verdana, Geneva, Tahoma, sans-serif;
-  font-weight: 900;
-  font-size: large;
+  font-weight: 90;
+  font-size: 30px;
   margin: 8px;
 }
 
