@@ -28,11 +28,21 @@
     
    
 }
-.bt_genero_menu{
+.bt_genero_menu, .bt_genero_menu_lancamento{
   border: none;
   border-bottom: solid 2px rgb(0, 0, 0);
   background-color: rgba(44, 44, 44, 0.555);
    color: rgb(255, 255, 255);
+  padding: 5px 25px;
+  font-weight: 600;
+
+}
+
+.bt_genero_menu_ativado{
+  border: none;
+  border-bottom: solid 2px rgb(0, 0, 0);
+  background-color: rgba(6, 253, 6, 0.384);
+   color: black;
   padding: 5px 25px;
   font-weight: 600;
 

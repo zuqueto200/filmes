@@ -19,7 +19,7 @@
 .contentBuild {
   display: flex;
   flex-wrap: wrap;
-  max-width: 1180px; 
+  max-width: 100%; 
   justify-content: center;
   
 }

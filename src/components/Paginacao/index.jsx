@@ -20,12 +20,13 @@ export function Paginacao() {
     if (paginasTotal < offset) { setOffset(1) }
 
 
-    console.log(paginasTotal)
+    
 
 
     return (
 
-
+ 
+    
 
         <ul className='pages'>
             <li className='listPage'>

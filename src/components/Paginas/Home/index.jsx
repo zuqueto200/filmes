@@ -1,45 +1,45 @@
 // import React, { useEffect, useState } from "react";
+// import { useFilmes } from "../../../context/filmesContext";
+// import { useOffset } from "../../../context/offsetContext";
+// import { usePaginasTotal } from "../../../context/paginasTotalContext";
 // import './style.css'
 
-// import { BuildFilmes } from "../../BuildFilmes"
-// import { Menu } from "../../Header/Menu/Menu";
 
-
-// export function Home(props) {
-//     const [filmes, set_filmes] = useState([])
-//     const [offsetHome, setOffsetHome] = useState(1)
-
+// export function Home() {
+//     const { offset, setOffset } = useOffset(1)
+//     const { filmes, setFilmes } = useFilmes([])
+//     const { paginasTotal, setPaginasTotal } = usePaginasTotal(1)
 
 
 
-
+//     const urlFilmes = 'https://api.themoviedb.org/3/discover/movie?api_key=045e6ecc0a0745e720f0cc5a7c2f7a90&page=' + offset + '&language=pt-BR'
+    
+//     function apiHome() {
+//         fetch(urlFilmes).then((res) => res.json()).then(data => {
+//             setFilmes(data.results)
+//             setPaginasTotal(500) // so pega 500 paginas data.total_pages
+//         })
+//         //.then(() => console.log('apiHome OK'))
+//         .catch(erro => console.log('sem resposta apiHome', erro))
+//     }
+    
+    
+    
+    
 //     useEffect(() => {
+
 //         apiHome()
 
-//     }, [offsetHome])
+//     }, [offset])
 
-//     const totalHome = 500 // quantidade // so puxa 500 paginas
 
 
 //     return (
 //         <>
 
-               
-
-//             <BuildFilmes
-//                 filmes={filmes}
-//                 totalHome={totalHome}
-//                 offsetHome={offsetHome}
-//                 setOffsetHome={setOffsetHome}
-//                 contentTitulo={'FILMES MAIS POPULARES'}
 
 
 
-//             />
-
-
-
-//             {/* <Paginacao   /> */}
 
 //         </>
 //     )

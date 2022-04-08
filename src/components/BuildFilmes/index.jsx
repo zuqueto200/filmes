@@ -20,8 +20,8 @@ export function BuildFilmes(props) {
         setfilmeClick(filme)
         setclickOnOff(true)
     }
-
-  
+ 
+     
 
     return (
         <>

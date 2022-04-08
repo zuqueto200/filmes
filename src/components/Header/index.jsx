@@ -31,38 +31,39 @@ export function Header() {
 
     const handleBusca = function () {
 
-
-
+         
         const searchInput = 'https://api.themoviedb.org/3/search/movie?api_key=045e6ecc0a0745e720f0cc5a7c2f7a90&language=pt-BR&query=' + palavraChave + '&page=' + offset + '&include_adult=false'
 
         // FAZER PESQUISA POR AUTAL PRIMEIRO
 
-        if (palavraChave.length > 0) {
+ 
 
+        
+        
+        if (palavraChave.length > 0) {
+            
             fetch(searchInput).then((res) => res.json()).then(data => {
 
                 setFilmes(data.results)
                 setPaginasTotal(data.total_pages)
-
+                
 
             }).catch((err) => {
                 console.log(err, ' erro na busca')
 
             })
         }
-    }
-
+    } 
+    
+    
+ 
     useEffect(() => {
         handleBusca()
+    }, [ palavraChave, offset ])
 
 
 
-    }, [ palavraChave, offset, paginasTotal ])
-
-
-
-
-
+ 
     function press(e) {
         if (e !== ' ' &&
             e !== '+' &&
@@ -85,12 +86,13 @@ export function Header() {
                     value={palavraChave}
                     onChange={(e) => press(e.target.value)}
 
-                />
+                /> 
             </div>
 
 
             <Menu />
             <BuildFilmes />
+            
 
         </>
 
