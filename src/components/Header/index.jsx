@@ -45,7 +45,9 @@ export function Header() {
             fetch(searchInput).then((res) => res.json()).then(data => {
 
                 setFilmes(data.results)
-                setPaginasTotal(data.total_pages)
+
+                if(data.total_pages<=500){setPaginasTotal(data.total_pages)}else{setPaginasTotal(500)
+                }
                 
 
             }).catch((err) => {
@@ -55,15 +57,10 @@ export function Header() {
         }
     } 
     
-    
- 
-    useEffect(() => {
+        useEffect(() => {
         handleBusca()
     }, [ palavraChave, offset ])
 
-
-
- 
     function press(e) {
         if (e !== ' ' &&
             e !== '+' &&

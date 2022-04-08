@@ -51,7 +51,8 @@ export function Menu() {
 
         fetch(API_GENEROS_FILMES + numeroIdGenero).then((res) => res.json()).then((data) => {
             setFilmes(data.results)
-            setPaginasTotal(500) //max 500 data.total_pages
+            if(data.total_pages<=500){setPaginasTotal(data.total_pages)}else{setPaginasTotal(500)
+            } //max 500 data.total_pages
         })
             // .then(() => console.log('generos OK'))
             .catch(() => console.log('sem resposta (api generos)'))
@@ -68,13 +69,12 @@ export function Menu() {
 
         cria_menu_genero()
         apiGeneros()
-     console.log(numeroIdGenero)
 
     }, [numeroIdGenero, offset])
 
- 
 
-    
+
+
 
     return (
 
@@ -99,10 +99,10 @@ export function Menu() {
 
                     <div className='menu'>
 
-                        <button  className={numeroIdGenero === undefined ? 'bt_genero_menu_ativado':'bt_genero_menu '}
+                        <button className={numeroIdGenero === undefined ? 'bt_genero_menu_ativado' : 'bt_genero_menu '}
                             onClick={(e) => {
                                 setNumeroIdGenero(undefined)
-                                 
+
                                 setOffset(1)
                             }}
                         >LANÇAMENTOS</button>
@@ -111,14 +111,14 @@ export function Menu() {
 
 
                             <button
-                                className={numeroIdGenero === gene.id ? 'bt_genero_menu_ativado':'bt_genero_menu'}
+                                className={numeroIdGenero === gene.id ? 'bt_genero_menu_ativado' : 'bt_genero_menu'}
                                 key={gene.id}
                                 onClick={(e) => {
                                     setNumeroIdGenero(gene.id)
                                     setNomeGenero(gene.name)
                                     setPalavraChave('')
                                     setOffset(1)
-                                     
+
                                 }}>{gene.name}</button>
 
                         ))}
