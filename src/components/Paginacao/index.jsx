@@ -1,26 +1,23 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { useOffset } from '../../context/offsetContext';
 import { usePaginasTotal } from '../../context/paginasTotalContext';
-import { Home } from '../Paginas/Home';
 import './style.css'
 
 const MAX_ITENS = 9;
 const MAX_LEFT = (MAX_ITENS - 1) / 2;
 
 export function Paginacao() {
-
-    const{offset,setOffset} = useOffset(1)
+     const{offset,setOffset} = useOffset(1)
     const {paginasTotal, setPaginasTotal} = usePaginasTotal(1)
 
     
     var DESLOCAMENTO = Math.max(offset - MAX_LEFT, 1)
+    
 
     if (DESLOCAMENTO > paginasTotal - 8) { DESLOCAMENTO = paginasTotal - 8 }
     if (paginasTotal <= 9) { DESLOCAMENTO = 1 }
-    if (paginasTotal < offset) { setOffset(1) }
 
-
-    
+ 
 
 
     return (

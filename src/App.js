@@ -1,46 +1,42 @@
 import './index.css';
-import { Home } from './components/Paginas/Home'
 import { Header } from './components/Header';
-import { Menu } from './components/Header/Menu/Menu';
 import { FilmesProvider } from './context/filmesContext';
 import { OffsetProvider } from './context/offsetContext';
 import { PaginasTotalProvider } from './context/paginasTotalContext';
-import { Paginacao } from './components/Paginacao';
-import { PalavraChaveProvider } from './context/palavraChaveContext';
-    
+import { PalavraChaveProvider, usePalavraChave } from './context/palavraChaveContext';
+import { Route, Routes } from 'react-router-dom';
+import { NomeGeneroProvider } from './context/nomeGenero';
 
 export default function App(props) {
-
-  const API_KEY = 'api_key=045e6ecc0a0745e720f0cc5a7c2f7a90'
-  const BASE_URL = 'https://api.themoviedb.org/3'
-  var DISCOVER_URL = 'https://api.themoviedb.org/3/discover/movie?api_key=045e6ecc0a0745e720f0cc5a7c2f7a90&page=1&language=pt-BR'
-
 
 
   return (
 
-    <> 
-    
-    <FilmesProvider>
-      <OffsetProvider>
-        <PaginasTotalProvider>
-        <PalavraChaveProvider>
+    <>
 
-      <Header/>
-      
-       
-        </PalavraChaveProvider>
-        </PaginasTotalProvider>
-      </OffsetProvider>
-    </FilmesProvider>
-     
+      <FilmesProvider>
+        <OffsetProvider>
+          <PaginasTotalProvider>
+            <PalavraChaveProvider>
+              <NomeGeneroProvider>
+                <Header />
+                {/* 
+                <Routes>
+
+                 
+
+                  <Route path="/" exact element={} />
+                                   
+                </Routes> */}
+
+              </NomeGeneroProvider>
+            </PalavraChaveProvider>
+          </PaginasTotalProvider>
+        </OffsetProvider>
+      </FilmesProvider>
 
 
 
-      {/* <Home/> */}
-        
-      {/* <GenerosFilmes/>  */}
-      {/* <Paginacao /> */}
     </>
 
   )

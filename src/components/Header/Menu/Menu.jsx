@@ -2,12 +2,10 @@ import { useEffect, useState } from 'react'
 import { IoMdMenu } from 'react-icons/io'
 import { IoMdClose } from 'react-icons/io'
 import { useFilmes } from '../../../context/filmesContext'
+import { useNomeGenero } from '../../../context/nomeGenero'
 import { useOffset } from '../../../context/offsetContext'
 import { usePaginasTotal } from '../../../context/paginasTotalContext'
 import { usePalavraChave } from '../../../context/palavraChaveContext'
-import { BuildFilmes } from '../../BuildFilmes'
-import { Home } from '../../Paginas/Home'
-
 import './style.css'
 
 
@@ -17,12 +15,12 @@ export function Menu() {
     const { offset, setOffset } = useOffset(1)
     const { paginasTotal, setPaginasTotal } = usePaginasTotal(1)
     const { palavraChave, setPalavraChave } = usePalavraChave('')
+    const { nomeGenero, setNomeGenero } = useNomeGenero('')
 
 
 
     const [numeroIdGenero, setNumeroIdGenero] = useState()
     const [generos, setGeneros] = useState([])
-    const [nomeGenero, setNomeGenero] = useState('')
 
 
     const [botaoClicadoMenu, setBotaoClicadoMenu] = useState(false)
@@ -45,14 +43,23 @@ export function Menu() {
     }
 
 
+
     function apiGeneros() {
 
-
+        // if (palavraChave.length > 0) { setNumeroIdGenero(0) }
+        // if (numeroIdGenero === 0 && palavraChave.length === 0 ) { setNumeroIdGenero(undefined) }
 
         fetch(API_GENEROS_FILMES + numeroIdGenero).then((res) => res.json()).then((data) => {
             setFilmes(data.results)
-            if(data.total_pages<=500){setPaginasTotal(data.total_pages)}else{setPaginasTotal(500)
-            } //max 500 data.total_pages
+
+
+            if (data.total_pages <= 500) { setPaginasTotal(data.total_pages) } else {
+                setPaginasTotal(500)
+            }
+
+
+
+            //max 500 data.total_pages
         })
             // .then(() => console.log('generos OK'))
             .catch(() => console.log('sem resposta (api generos)'))
@@ -69,8 +76,9 @@ export function Menu() {
 
         cria_menu_genero()
         apiGeneros()
+        console.log(nomeGenero, 'num.', numeroIdGenero)
 
-    }, [numeroIdGenero, offset])
+    }, [numeroIdGenero, offset, palavraChave])
 
 
 
@@ -99,29 +107,35 @@ export function Menu() {
 
                     <div className='menu'>
 
-                        <button className={numeroIdGenero === undefined ? 'bt_genero_menu_ativado' : 'bt_genero_menu '}
+                        <button
+
+                            className={numeroIdGenero === undefined ? 'bt_genero_menu_ativado' : 'bt_genero_menu '}
                             onClick={(e) => {
                                 setNumeroIdGenero(undefined)
-
+                                setNomeGenero('Lançamentos')
                                 setOffset(1)
                             }}
                         >LANÇAMENTOS</button>
 
+
                         {generos.map((gene) => (
+                           
+                                <button
+                                    className={numeroIdGenero === gene.id ? 'bt_genero_menu_ativado' : 'bt_genero_menu'}
+                                    key={gene.id}
+                                    onClick={(e) => {
 
 
-                            <button
-                                className={numeroIdGenero === gene.id ? 'bt_genero_menu_ativado' : 'bt_genero_menu'}
-                                key={gene.id}
-                                onClick={(e) => {
-                                    setNumeroIdGenero(gene.id)
-                                    setNomeGenero(gene.name)
-                                    setPalavraChave('')
-                                    setOffset(1)
+                                        setNumeroIdGenero(gene.id)
+                                        setNomeGenero(gene.name)
+                                        setPalavraChave('')
+                                        setOffset(1)
 
-                                }}>{gene.name}</button>
-
+                                    }}>{gene.name}</button>
+                                                          
+                           
                         ))}
+
 
                     </div>
 
