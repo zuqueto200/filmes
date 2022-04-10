@@ -3,51 +3,46 @@ import { useOffset } from '../../context/offsetContext';
 import { usePaginasTotal } from '../../context/paginasTotalContext';
 import './style.css'
 
-const MAX_ITENS = 9;
-const MAX_LEFT = (MAX_ITENS - 1) / 2;
-
 export function Paginacao() {
-     const{offset,setOffset} = useOffset(1)
-    const {paginasTotal, setPaginasTotal} = usePaginasTotal(1)
+    const { offset, setOffset } = useOffset(1)
+    const { paginasTotal, setPaginasTotal } = usePaginasTotal(1)
 
-    
-    var DESLOCAMENTO = Math.max(offset - MAX_LEFT, 1)
-    
+    const btMaxPaginacao = 9;
+    const btCentroPaginacao = (btMaxPaginacao - 1) / 2;
+    var deslocamento = Math.max(offset - btCentroPaginacao, 1)
 
-    if (DESLOCAMENTO > paginasTotal - 8) { DESLOCAMENTO = paginasTotal - 8 }
-    if (paginasTotal <= 9) { DESLOCAMENTO = 1 }
-
- 
-
+    if (deslocamento > paginasTotal - 8) { deslocamento = paginasTotal - 8 }
+    if (paginasTotal <= 9) { deslocamento = 1 }
 
     return (
 
- 
-    
-
-        <ul className='pages'>
-            <li className='listPage'>
-                <button className='bt_paginacao' onClick={() => setOffset(1)}>
+        <ul className='ulPaginas'>
+            <li className='liPaginas'>
+                <button className='btPaginas'
+                    onClick={() => setOffset(1)}>
                     PRIMEIRA
                 </button>
             </li>
-            {Array.from({ length: Math.min(MAX_ITENS, paginasTotal) })
 
-                .map((e, i) => (i + DESLOCAMENTO))
+            {Array.from({ length: Math.min(btMaxPaginacao, paginasTotal) })
+
+                .map((e, i) => (i + deslocamento))
                 .map((pg) => (
-                    <li className='listPage' key={pg}>
-                         
+
+                    <li className='liPaginas' key={pg}>
+
                         <button
-                            className={offset === pg ? 'bt_paginacao_ativo' : 'bt_paginacao'}
+                            className={offset === pg ? 'btPaginasAtivo' : 'btPaginas'}
                             onClick={() => setOffset(pg)}>
                             {pg}
                         </button>
-                    </li>)
 
-                )}
+                    </li>
+                ))}
 
-            <li className='listPage'>
-                <button className='bt_paginacao' onClick={() => setOffset(paginasTotal)}>
+            <li className='liPaginas'>
+                <button className='btPaginas'
+                    onClick={() => setOffset(paginasTotal)}>
                     ULTIMA
                 </button>
             </li>

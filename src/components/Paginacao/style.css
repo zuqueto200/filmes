@@ -1,14 +1,14 @@
  
-.pages{
+.ulPaginas{
   display: flex;
   justify-content: center;
 }
-ul, .listPage  {
+ul, .liPaginas  {
   list-style: none;
   padding: 0;
 }
  
-.bt_paginacao_ativo{ 
+.btPaginasAtivo{ 
     color: rgb(0, 0, 0);
   font-size: 13px;
   font-weight: 800;
@@ -22,7 +22,7 @@ ul, .listPage  {
   border: solid black 1px;
   
 }
-.bt_paginacao {
+.btPaginas {
   color: rgb(0, 0, 0);
   font-size: 13px;
   font-weight: 800;
@@ -35,7 +35,7 @@ ul, .listPage  {
   margin: 0 5px;
   border: solid black 1px;
 }
-.bt_paginacao:hover {
+.btPaginas:hover {
   
   background-color: darkgreen;
   cursor: pointer;

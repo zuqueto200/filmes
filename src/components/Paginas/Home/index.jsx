@@ -2,57 +2,44 @@ import React, { useEffect, useState } from "react";
 import { useNomeGeneroTitulo } from "../../../context/nomeGeneroTitulo";
 import { usePaginasTotal } from "../../../context/paginasTotalContext";
 import { BuildFilmes } from "../../BuildFilmes";
-import { Header } from "../../Header";
+import { Header } from "../../Header/Search";
 import { Menu } from "../../Header/Menu/Menu";
 import { Paginacao } from "../../Paginacao";
-
 import './style.css'
-
 
 export function Home() {
     const { paginasTotal, setPaginasTotal } = usePaginasTotal(1)
     const { nomeGeneroTitulo, setNomeGeneroTitulo } = useNomeGeneroTitulo()
 
     return (
-        <>
- 
-            <div className="containerHome">
+        <div className="containerHome">
 
 
-                <header>
-                <Header/>
-                </header>
+            <header>
+                <Header />
+            </header>
 
-                <nav>
-                <Menu/>
-                </nav>
- 
+            <nav>
+                <Menu />
+            </nav>
 
-                <aside>
+
+            <aside>
                 <p>{nomeGeneroTitulo}</p>
-                </aside>
-                <main>
-                <BuildFilmes/> 
-                </main>
- 
-                <section>
+            </aside>
 
-                </section>
+            <main>
+                <BuildFilmes />
+            </main>
 
-                <footer>
-                {paginasTotal ? (
-                        <Paginacao />
-                    ) : null}
-                </footer>
+            <section>
+                {/* VAZIO - PARA ANUNCIOS */}
+            </section>
 
-            </div>
+            <footer>
+                {paginasTotal ? (<Paginacao />) : null}
+            </footer>
 
-
-
-
-
-
-
-        </>
+        </div>
     )
 }

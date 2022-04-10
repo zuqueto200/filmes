@@ -1,5 +1,5 @@
 import './index.css';
-import { Header } from './components/Header';
+import { Header } from './components/Header/Search';
 import { FilmesProvider } from './context/filmesContext';
 import { OffsetProvider } from './context/offsetContext';
 import { PaginasTotalProvider } from './context/paginasTotalContext';

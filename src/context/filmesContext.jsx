@@ -1,5 +1,5 @@
 import React, { createContext, useContext, useState } from "react"
-import { Header } from "../components/Header"
+import { Header } from "../components/Header/Search"
 
 export const FilmesContextDefault = {
     filmes: [],
