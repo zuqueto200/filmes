@@ -1,27 +1,73 @@
- 
+@import url("https://fonts.googleapis.com/css2?family=Julius+Sans+One&display=swap");
 .top {
   display: flex;
   background-color: rgb(15, 3, 58);
-  height: 70px; 
   justify-content: space-between;
- align-items: center;
-  padding: 0 40px;
+  height: 70px;
+  align-items: center;
 }
-
+.contentTop {
+  display: flex;
+  margin: 0 50px 0 0;
+  justify-content: right;
+  min-width: 250px; 
+}
 .top p {
-  margin: 0;
-  
-  color: rgb(255, 255, 255);
-  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  color: rgb(14, 209, 30);
+  font-family: "Julius Sans One", sans-serif;
   font-size: 30px;
-  font-weight: 900;
-}
-input {
-   
-  height: 30px;
-  padding: 5px 0 2px 15px;
-  font-size: 20px;
-  border-radius: 20px;
+  font-weight: 400;
+  min-width: 250px; 
+  margin: 0 0 0 110px;
+  cursor: pointer;
 }
 
- 
+.icon--search {
+  display: flex; 
+  align-items: center;
+}
+
+.iconeSearch {
+  color: rgb(179, 255, 0);
+  font-size: 30px;
+  float: right;
+  position: relative;
+  cursor: pointer;
+  right: 25.5px;
+  top: 2.9px;
+}
+
+.animaInput {
+  animation: fadeInSearch 400ms forwards;
+}
+@keyframes fadeInSearch {
+  0% {
+    width: 0px;
+  }
+  100% {
+    visibility: visible;
+    width: 200px;
+  }
+}
+
+input {
+  visibility: hidden;
+
+  height: 20px;
+  width: 0px;
+  padding: 5px 0 2px 15px;
+  font-size: 15px;
+  font-weight: 400;
+  border-radius: 20px;
+  color: white;
+  border: none;
+  background-color: rgba(0, 0, 255, 0.253);
+}
+
+input:focus {
+  border: none;
+  outline: 10px;
+}
+input::placeholder {
+  color: rgba(255, 255, 255, 0.432);
+}

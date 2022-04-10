@@ -6,6 +6,10 @@ import { PaginasTotalProvider } from './context/paginasTotalContext';
 import { PalavraChaveProvider, usePalavraChave } from './context/palavraChaveContext';
 import { Route, Routes } from 'react-router-dom';
 import { NomeGeneroProvider } from './context/nomeGenero';
+import { Menu } from './components/Header/Menu/Menu';
+import { BuildFilmes } from './components/BuildFilmes';
+import { Home } from './components/Paginas/Home';
+import { NomeGeneroTituloProvider } from './context/nomeGeneroTitulo';
 
 export default function App(props) {
 
@@ -19,16 +23,12 @@ export default function App(props) {
           <PaginasTotalProvider>
             <PalavraChaveProvider>
               <NomeGeneroProvider>
-                <Header />
-                {/* 
-                <Routes>
+                <NomeGeneroTituloProvider>
 
-                 
 
-                  <Route path="/" exact element={} />
-                                   
-                </Routes> */}
+                 <Home/>
 
+                </NomeGeneroTituloProvider>
               </NomeGeneroProvider>
             </PalavraChaveProvider>
           </PaginasTotalProvider>

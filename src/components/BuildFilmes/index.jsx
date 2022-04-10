@@ -25,28 +25,33 @@ export function BuildFilmes(props) {
 
 
             <div className="container">
-                <div className="content">
-                    <p className="contentTitulo">{props.contentTitulo} </p>
-                    <div className='contentBuild' >
 
-                        {filmes.map((filme) =>
-                            < div className='contentImageBuild' key={filme.id}
-                                onClick={() =>
-                                    filmeDetalhe(filme)}>
+                <div className='contentBuild' >
 
-                                <img src={'https://image.tmdb.org/t/p/w500' + filme.poster_path} alt='' />
+                    {filmes.map((filme) =>
+                        < div className='contentImageBuild' key={filme.id}
+                            onClick={() =>
+                                filmeDetalhe(filme)}>
+                            <>
+                                {filme.poster_path === null ? <div className="noImg">{filme.title}</div> :
+
+                                    <img src={'https://image.tmdb.org/t/p/w500' + filme.poster_path} alt='' />}
+
                                 <p>{filme.title}</p>
+                            </>
 
-                            </div>
-                        )}
 
-                    </div>
-                    {paginasTotal ? (
-                        <Paginacao />
-                    ) : null}
+
+                        </div>
+                    )}
+
+
                 </div>
 
             </div>
+
+
+
             {clickOnOff && (<Modal filme={filmeClick} voltar={() => setclickOnOff(false)} />)}
 
 

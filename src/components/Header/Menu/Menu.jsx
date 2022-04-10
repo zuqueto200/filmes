@@ -1,8 +1,10 @@
 import { useEffect, useState } from 'react'
 import { IoMdMenu } from 'react-icons/io'
 import { IoMdClose } from 'react-icons/io'
+import { Link } from 'react-router-dom'
 import { useFilmes } from '../../../context/filmesContext'
 import { useNomeGenero } from '../../../context/nomeGenero'
+import { useNomeGeneroTitulo } from '../../../context/nomeGeneroTitulo'
 import { useOffset } from '../../../context/offsetContext'
 import { usePaginasTotal } from '../../../context/paginasTotalContext'
 import { usePalavraChave } from '../../../context/palavraChaveContext'
@@ -16,6 +18,7 @@ export function Menu() {
     const { paginasTotal, setPaginasTotal } = usePaginasTotal(1)
     const { palavraChave, setPalavraChave } = usePalavraChave('')
     const { nomeGenero, setNomeGenero } = useNomeGenero('')
+    const { nomeGeneroTitulo, setNomeGeneroTitulo } = useNomeGeneroTitulo('')
 
 
 
@@ -46,8 +49,7 @@ export function Menu() {
 
     function apiGeneros() {
 
-        // if (palavraChave.length > 0) { setNumeroIdGenero(0) }
-        // if (numeroIdGenero === 0 && palavraChave.length === 0 ) { setNumeroIdGenero(undefined) }
+        if (palavraChave.length === 0) {
 
         fetch(API_GENEROS_FILMES + numeroIdGenero).then((res) => res.json()).then((data) => {
             setFilmes(data.results)
@@ -63,7 +65,8 @@ export function Menu() {
         })
             // .then(() => console.log('generos OK'))
             .catch(() => console.log('sem resposta (api generos)'))
-    }
+        if (numeroIdGenero === undefined) { setNomeGenero('Lançamentos') }
+    }}
 
     function btPressMenu() {
         if (botaoClicadoMenu === false) {
@@ -76,10 +79,10 @@ export function Menu() {
 
         cria_menu_genero()
         apiGeneros()
-        console.log(nomeGenero, 'num.', numeroIdGenero)
-
+        
     }, [numeroIdGenero, offset, palavraChave])
 
+ 
 
 
 
@@ -89,20 +92,14 @@ export function Menu() {
         <>
             <div className='contentMenu'>
 
-                <button
-                    className="bt_menu"
-                    onClick={() => {
+                <div onClick={() => {btPressMenu()}}>
+                    {botaoClicadoMenu ? (
+                    <IoMdClose className="icon_menu" />
+                 
+                    ) : <IoMdMenu className="icon_menu" />}
+                </div>
 
-                        btPressMenu()
-
-
-
-                    }}>
-                    {botaoClicadoMenu ? <IoMdClose className="icon_menu" /> : <IoMdMenu className="icon_menu" />}
-                </button>
-
-
-
+                 
                 {botaoClicadoMenu ? (
 
                     <div className='menu'>
@@ -115,25 +112,27 @@ export function Menu() {
                                 setNomeGenero('Lançamentos')
                                 setOffset(1)
                             }}
-                        >LANÇAMENTOS</button>
+                        >Lançamentos</button>
 
 
                         {generos.map((gene) => (
-                           
-                                <button
-                                    className={numeroIdGenero === gene.id ? 'bt_genero_menu_ativado' : 'bt_genero_menu'}
-                                    key={gene.id}
-                                    onClick={(e) => {
+
+                            // <Link to={'/menu'}>
+                            <button
+                                className={numeroIdGenero === gene.id ? 'bt_genero_menu_ativado' : 'bt_genero_menu'}
+                                key={gene.id}
+                                onClick={(e) => {
 
 
-                                        setNumeroIdGenero(gene.id)
-                                        setNomeGenero(gene.name)
-                                        setPalavraChave('')
-                                        setOffset(1)
+                                    setNumeroIdGenero(gene.id)
+                                    setNomeGenero(gene.name)
+                                    setPalavraChave('')
+                                    setOffset(1)
 
-                                    }}>{gene.name}</button>
-                                                          
-                           
+                                }}>{gene.name}</button>
+                            // </Link>
+
+
                         ))}
 
 

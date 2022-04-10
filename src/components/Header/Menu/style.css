@@ -1,54 +1,58 @@
- 
-.contentMenu{
-  /* cc */
-}
-.icon_menu {
+.contentMenu {
+  display: flex;
    
+}
+
+.icon_menu {
+  position: absolute;
+  left: 50px;
+  top: calc(70px / 2);
+  transform: translate(-50%, -50%);
   min-width: 50px;
   min-height: 50px;
-  color: rgb(179, 255, 0);
+  color: rgb(180, 255, 0);
   background-color: rgba(0, 255, 255, 0);
 }
-.bt_menu{
+ 
+.menu { 
   display: flex;
+  position: absolute;
+  flex-flow: column; 
+  left: -160px;
+  width: 160px;
+  font-size: 1em;  
+  animation:  fadeInMenu 200ms forwards;
   
-  background-color: rgba(250, 235, 215, 0);
-  border: none;
 }
-.menu{
+
+.animaMenu{
+}
+@keyframes fadeInMenu {
+  0%{left: -160px;}
+  100%{left: 0;}
   
-  display: flex;
-  align-content:space-between;
-  padding: 0;
-  flex-flow: column;
-  left: 0;float: left;
-  position: relative;
-  z-index: 100;
-   
-    
-   
 }
-.bt_genero_menu, .bt_genero_menu_lancamento{
+
+.bt_genero_menu,
+.bt_genero_menu_lancamento {
+  text-align: left;
+  padding: 3px 25px;
+  border: none; 
+  border-bottom: solid 2px rgb(0, 0, 0);
+  background-color: rgb(44, 44, 44);
+  color: rgba(179, 255, 0, 0.733);
+}
+
+.bt_genero_menu_ativado {
+  text-align: left;
+  padding: 3px 25px; 
   border: none;
   border-bottom: solid 2px rgb(0, 0, 0);
-  background-color: rgba(44, 44, 44, 0.555);
-   color: rgb(255, 255, 255);
-  padding: 5px 25px;
+  background-color: rgb(2, 164, 2);
+  color: rgb(0, 0, 0);
   font-weight: 600;
-
 }
-
-.bt_genero_menu_ativado{
-  border: none;
-  border-bottom: solid 2px rgb(0, 0, 0);
-  background-color: rgba(6, 253, 6, 0.384);
-   color: black;
-  padding: 5px 25px;
+.bt_genero_menu:hover { 
+  color: rgb(180, 255, 0);
   font-weight: 600;
-
-}
-.bt_genero_menu:hover{
-  
-  background-color: rgba(6, 253, 6, 0.384);
-  color: black;
 }
