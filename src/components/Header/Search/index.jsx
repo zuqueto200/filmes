@@ -74,7 +74,6 @@ export function Header() {
     return (
 
         <div className="top">
-
             <p>Filmes API - TMDB</p>
 
             <div className="contentTop">
