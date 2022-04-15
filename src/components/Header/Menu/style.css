@@ -21,6 +21,7 @@
   left: -160px;
   width: 160px;
   font-size: 1em;  
+  z-index: 10;
   animation:  fadeInMenu 200ms forwards;
   
 }
