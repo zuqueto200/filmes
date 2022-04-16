@@ -6,7 +6,7 @@ import './style.css'
 
 
 
-export function TrailerYoutube(props) {
+export function TrailerFilmes(props) {
     const [trailer, setTrailer] = useState([])
 
  

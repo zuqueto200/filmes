@@ -9,6 +9,7 @@
   left: 0;
 }
 .contentModal {
+  
   margin-top: 30px;
   max-width: 1000px;
   width: 60%;
@@ -16,37 +17,4 @@
    
   background-color: rgba(0, 255, 255, 0.26);
 }
-.contentInterna {
-  padding: 20px;
-  text-align: justify;
-}
-.tituloModal {
-  font-size: 30px;
-  margin: 20px;
-}
-.imageModal,
-.noImageModal {
-  float: left;
-  width: 250px;
-  height: 375px;
-  margin: 0 15px 10px 0;
-}
-.noImageModal {
-  display: flex;
-  text-align: center;
-  justify-content: center;
-  background-color: black;
-  color: white;
-  font-size: 30px;
-  align-items: center;
-}
-.contentInterna strong{
-  font-weight: 900;
-  font-size:17px;
-  color: rgb(10, 0, 31);
-} 
-.contentInterna p{ 
-  font-family:Verdana, Geneva, Tahoma, sans-serif;
-  margin-top: 0;
-
-} 
+ 

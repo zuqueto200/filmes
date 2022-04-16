@@ -1,0 +1,24 @@
+.containerDetalheModal {
+  padding: 20px;
+  text-align: justify;
+}
+.tituloModal {
+  font-size: 30px;
+  margin: 0 0 10px 0 ;
+}
+.imagemodal,
+.semImagemModal {
+  float: left;
+  width: 250px;
+  height: 375px;
+  margin: 0 15px 10px 0;
+}
+.semImagemModal {
+  display: flex;
+  text-align: center;
+  justify-content: center;
+  background-color: black;
+  color: white;
+  font-size: 30px;
+  align-items: center;
+}
