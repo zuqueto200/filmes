@@ -15,6 +15,7 @@
   color: black;
 }
 .personagemElenco {
+  display: block;
 }
 
 .nomeElenco {
@@ -37,9 +38,11 @@
 }
 
 .contentImageElenco {
+  display: block;
 }
 
 .contentSemImageElenco {
+  display: block;
 }
 
 .semImageElenco {
