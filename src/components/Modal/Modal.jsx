@@ -1,35 +1,45 @@
 import React, { useEffect, useState } from "react";
-import { TrailerFilmes } from "./TrailerFilmes/TrailerFilmes";
+import { TrailerFilmes } from "./Midia/TrailerFilmes";
 import { DetalheFilme } from "./DetalheFilme/DetalheFilme";
 import './style.css';
-import { ElencoFilmes } from "./ElencoFilmes/ElencoFilmes";
+import { ElencoFilmes } from "./ElencoFilmes/index";
+import { useClickFilmes } from "../../context/clickFilmes";
+import { Header } from "../Header/Search";
+import { Menu } from "../Header/Menu/Menu";
+import { PosterFilmes } from "./Midia/PosterFilmes";
+import { Midia } from "./Midia";
+import './style.css'
 
- 
 export function Modal(props) {
     const filme = props.filme
-    window.scroll(0, 0)
+    // window.scroll(0, 0)
+    const { clickFilmes, setClickFilmes } = useClickFilmes([])
 
-
- 
     return (
 
-        <div className="containerModal">
+        <>
+            <Header />
+            <Menu />
+            <div className="containerModal">
 
-            <div className="contentModal">
+                <div className="contentModal">
 
-                <DetalheFilme IDfilme={filme.id} />
+                    <DetalheFilme IDfilme={clickFilmes.id} />
 
-                <hr />
+                    <hr />
 
-                <TrailerFilmes IDfilme={filme.id} />
+                    
 
-                <hr />
+                    <Midia IDfilme={clickFilmes.id} />
 
-                <ElencoFilmes IDfilme={filme.id} />
- 
+                    <hr />
+
+                    <ElencoFilmes IDfilme={clickFilmes.id} />
+
+
+                </div>
 
             </div>
-
-        </div>
+        </>
     )
 }

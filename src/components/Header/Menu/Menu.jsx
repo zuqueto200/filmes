@@ -1,11 +1,15 @@
 import { useEffect, useState } from 'react'
 import { IoMdMenu } from 'react-icons/io'
 import { IoMdClose } from 'react-icons/io'
+import { Link } from "react-router-dom";
 import { useFilmes } from '../../../context/filmesContext'
+import { useIdMenuGenero } from '../../../context/idMenuGenero'
 import { useNomeGenero } from '../../../context/nomeGenero'
 import { useOffset } from '../../../context/offsetContext'
 import { usePaginasTotal } from '../../../context/paginasTotalContext'
 import { usePalavraChave } from '../../../context/palavraChaveContext'
+import { BuildFilmes } from '../../BuildFilmes'
+import { Header } from '../Search'
 import './style.css'
 
 export function Menu() {
@@ -15,8 +19,10 @@ export function Menu() {
     const { paginasTotal, setPaginasTotal } = usePaginasTotal(1)
     const { palavraChave, setPalavraChave } = usePalavraChave('')
     const { nomeGenero, setNomeGenero } = useNomeGenero('')
+    const { idMenuGenero, setidMenuGenero } = useIdMenuGenero('')
 
-    const [idMenuGenero, setidMenuGenero] = useState()
+
+
     const [generos, setGeneros] = useState([])
     const [btTrocaLogoMenu, setBtTrocaLogoMenu] = useState(false)
 
@@ -52,7 +58,7 @@ export function Menu() {
                 // .then(() => console.log('PASS (URL FILMES POR GENEROS)'))
                 .catch((err) => console.log(err, 'ERRO (URL FILMES POR GENEROS)'))
 
-            if (idMenuGenero === undefined) { setNomeGenero('Lançamentos') }
+            if (idMenuGenero === '') { setNomeGenero('Lançamentos') }
         }
     }
 
@@ -64,15 +70,20 @@ export function Menu() {
         else { setBtTrocaLogoMenu(false) }
     }
 
+
+
     useEffect(() => {
 
         FnMenuGeneros()
         FnFilmesPorGeneros()
 
-    }, [idMenuGenero, offset, palavraChave]
+    }, [idMenuGenero, offset, palavraChave, nomeGenero]
     )
 
     return (
+
+
+
 
         <div className='contentMenu'>
 
@@ -81,34 +92,39 @@ export function Menu() {
                     <IoMdMenu className="icon_menu" />}
             </div>
 
-            {btTrocaLogoMenu ? (
 
-                <div className='menu'>
 
-                    <button
-                        className={idMenuGenero === undefined ?
-                            'bt_genero_menu_ativado' : 'bt_genero_menu '}
-                        onClick={(e) => {
-                            setidMenuGenero(undefined)
-                            setNomeGenero('Lançamentos')
-                            setOffset(1)
-                        }}>Lançamentos</button>
+            <Link to={'/'}>
+                {btTrocaLogoMenu ? (
 
-                    {generos.map((gene) => (
+                    <div className='menu'>
 
                         <button
-                            className={idMenuGenero === gene.id ?
-                                'bt_genero_menu_ativado' : 'bt_genero_menu'}
-                            key={gene.id}
+                            className={idMenuGenero === undefined ?
+                                'bt_genero_menu_ativado' : 'bt_genero_menu '}
                             onClick={(e) => {
-                                setidMenuGenero(gene.id)
-                                setNomeGenero(gene.name)
-                                setPalavraChave('')
+                                setidMenuGenero(undefined)
+                                setNomeGenero('Lançamentos')
                                 setOffset(1)
-                            }}>{gene.name}</button>
-                    ))}
-                </div>
-            ) : null}
+                            }}>Lançamentos</button>
+
+                        {generos.map((gene) => (
+
+                            <button
+                                className={idMenuGenero === gene.id ?
+                                    'bt_genero_menu_ativado' : 'bt_genero_menu'}
+                                key={gene.id}
+                                onClick={(e) => {
+                                    setidMenuGenero(gene.id)
+                                    setNomeGenero(gene.name)
+                                    setPalavraChave('')
+                                    setOffset(1)
+                                }}>{gene.name}</button>
+                        ))}
+                    </div>
+                ) : null}
+            </Link >
+
         </div>
     )
 }

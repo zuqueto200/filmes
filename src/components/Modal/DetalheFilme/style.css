@@ -1,17 +1,37 @@
+
+.containerImageBack{
+ 
+ background-repeat: no-repeat;
+ background-size:cover;
+ background-position: right; 
+ 
+}
+
 .containerDetalheModal {
+  display: flex;
+  justify-content: center;
   padding: 20px;
   text-align: justify;
+  min-height: 510px; 
+   
+  background-color: rgba(0, 0, 0, 0.76);
+}
+.containerTextoModal{
+ 
+  max-width: 2000px;
 }
 .tituloModal {
   font-size: 30px;
   margin: 0 0 10px 0 ;
+ 
 }
-.imagemodal,
+.comImageModal,
 .semImagemModal {
   float: left;
-  width: 250px;
-  height: 375px;
-  margin: 0 15px 10px 0;
+  width: 300px;
+  height: 450px;
+  margin: 0 15px 10px 100px;
+  border-radius: 10px;
 }
 .semImagemModal {
   display: flex;

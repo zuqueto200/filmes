@@ -1,0 +1,20 @@
+.containerMidia {
+   
+ 
+
+}
+
+.contentMidiaBotoes {
+  display: flex;
+  justify-content: center;
+}
+.contentMidiaBotoes button{
+  font-size: 35px;
+    color: white;
+
+  border: none;
+  margin: 50px;
+  background-color: rgba(255, 0, 0, 0);
+  cursor: pointer;
+  width: 290px;
+}

@@ -1,0 +1,26 @@
+.containerYoutubeCentro {
+  display: flex;
+  justify-content: center;
+}
+
+.contentYoutubeTitulo {
+  max-width: 640px;
+}
+.containerYoutube {
+  display: flex;
+  max-width: 640px;
+  overflow-x: scroll;
+  height: 450px;
+}
+iframe {
+  margin: 20px;
+  width: 600px;
+  height: 337px;
+}
+.contentYoutube p {
+  margin: 0 0 0 20px;
+  padding: 0 30px 0 0;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}

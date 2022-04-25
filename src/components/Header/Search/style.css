@@ -65,9 +65,10 @@ input {
   background-color: rgba(0, 0, 255, 0.253);
 }
 
-input:focus {
+input:focus, input:active {
   border: none;
   outline: 10px;
+  
 }
 input::placeholder {
   color: rgba(255, 255, 255, 0.432);

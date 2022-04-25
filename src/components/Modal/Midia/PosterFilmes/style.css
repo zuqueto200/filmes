@@ -1,0 +1,15 @@
+.containerPosterCentro {
+  display: flex;
+  justify-content: center;
+}
+.containerPoster {
+  display: flex;
+   align-items: center;
+  overflow-x: scroll;
+  max-width: 1000px;
+  height: 450px; 
+}
+.contentPoster img {
+  margin: 20px;
+  height: 350px;
+}

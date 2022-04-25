@@ -6,40 +6,46 @@ import { Header } from "../../Header/Search";
 import { Menu } from "../../Header/Menu/Menu";
 import { Paginacao } from "../../Paginacao";
 import './style.css'
+import { Link } from "react-router-dom";
 
 export function Home() {
     const { paginasTotal, setPaginasTotal } = usePaginasTotal(1)
     const { nomeGeneroTitulo, setNomeGeneroTitulo } = useNomeGeneroTitulo()
 
     return (
-        <div className="containerHome">
+
+         
 
 
-            <header>
-                <Header />
-            </header>
-
-            <nav>
-                <Menu />
-            </nav>
+            <div className="containerHome">
 
 
-            <aside>
-                <p>{nomeGeneroTitulo}</p>
-            </aside>
+                <header>
+                    <Header />
+                </header>
 
-            <main>
-                <BuildFilmes />
-            </main>
+                <nav>
+                    <Menu />
+                </nav>
 
-            <section>
-                {/* VAZIO - PARA ANUNCIOS */}
-            </section>
 
-            <footer>
-                {paginasTotal ? (<Paginacao />) : null}
-            </footer>
+                <aside>
+                    <p>{nomeGeneroTitulo}</p>
+                </aside>
 
-        </div>
+                <main>
+                    <BuildFilmes />
+                </main>
+
+                <section>
+                    {/* VAZIO - PARA ANUNCIOS */}
+                </section>
+
+                <footer>
+                    {paginasTotal ? (<Paginacao />) : null}
+                </footer>
+
+            </div>
+        
     )
 }

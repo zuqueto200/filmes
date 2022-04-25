@@ -7,6 +7,7 @@ import { usePalavraChave } from "../../../context/palavraChaveContext"
 import { useNomeGenero } from "../../../context/nomeGenero"
 import { useNomeGeneroTitulo } from "../../../context/nomeGeneroTitulo"
 import "./style.css"
+import { Home } from "../../Paginas/Home"
 
 export function Header() {
     const { nomeGenero, setNomeGenero } = useNomeGenero()
@@ -23,6 +24,7 @@ export function Header() {
     function FnSearch() {
 
         if (palavraChave.length > 0) {
+
 
             if (paginasTotal < offset) { setOffset(1) }
 
@@ -79,16 +81,23 @@ export function Header() {
             <div className="contentTop">
                 <div className="icon--search">
 
-                    <input className={btSearch ?
-                        "animaInput" : "search"}
+                    <input
+                        className={btSearch ?
+                            "animaInput" :
+                            "search"}
+
                         type="text"
+                        autoFocus={true}
                         id="search"
                         placeholder="Buscar Filmes"
                         value={palavraChave}
                         onChange={(e) => FnInputSearch(e.target.value)} />
 
                     <FaSearch className={"iconeSearch"}
-                        onClick={() => { FnIconSearch() }} />
+                        onClick={() => {
+                            setPalavraChave('')
+                            FnIconSearch()
+                        }} />
                 </div>
             </div>
         </div>
