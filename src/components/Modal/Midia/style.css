@@ -9,12 +9,11 @@
   justify-content: center;
 }
 .contentMidiaBotoes button{
-  font-size: 35px;
+  font-size: 16px;
     color: white;
-
-  border: none;
+ 
   margin: 50px;
-  background-color: rgba(255, 0, 0, 0);
+  background-color: rgba(255, 0, 0, 0.103);
   cursor: pointer;
-  width: 290px;
+  width: 200px;
 }

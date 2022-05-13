@@ -20,7 +20,7 @@ export function DetalheFilme(props) {
         fetch(urlDataIdade).then((res) => res.json())
             .then(data => {
                 var pais = data.results.filter((e) => e.iso_3166_1 === "BR")
-                var idade = (parseInt(pais.map((e) => (e.release_dates[0].certification))) + ' Anos.')
+                var idade = (parseInt(pais.map((e) => (e.release_dates[0].certification))))
 
                 var d = new Date(pais.map((e) => (e.release_dates[0].release_date)))
                 d.setDate(d.getDate() + 1);
@@ -91,35 +91,48 @@ export function DetalheFilme(props) {
         }}>
 
             <div className="containerDetalheModal">
-
+                <div className="containerImageModal">
 
                     {detalheFilme.poster_path === null ?
                         <div className="semImagemModal"> {detalheFilme.title}</div> :
                         <img className="comImageModal" src={'https://image.tmdb.org/t/p/w500' + detalheFilme.imagem} alt={detalheFilme.title} />}
+                </div>
+
                 <div className="containerTextoModal">
+                    <div>
+                        <span className="tituloModal">{detalheFilme.titulo}</span>
+                        <span className="tituloModalAno">{'(' + detalheFilme.anoLancamento + ')'} </span>
+                    </div>
 
-                    <p className="tituloModal">
-                        <strong>
-                            {detalheFilme.titulo + ' (' + detalheFilme.anoLancamento + ')'}
-                        </strong>
-                    </p>
-                    <p>{detalheFilme.tagline}</p>
+                    <div>
+                        <span className="classificacaoIndicativa"> {dataIdade.idade} </span>
+                        <span className="dataLancamento">{detalheFilme.dataLancamento}</span>
+                        <span className="tempoDuracao">{detalheFilme.tempoDuracao}</span>
 
-                    <p><strong>Titulo: </strong> {detalheFilme.titulo}</p>
+                    </div>
+
+                    <span className="generos">{detalheFilme.generos}</span>
+
+                    <div>
+                        <span className="tagline">{detalheFilme.tagline}</span>
+                    </div>
+
+                    <div>
+                        <div>
+                            <span className="sinopse"> Sinopse  </span>
+                        </div>
+
+                        <span className="sinopseText"> {detalheFilme.sinopse}</span>
+
+                    </div>
+
+
+                    {/* 
                     <p><strong>Titulo Original: </strong> {detalheFilme.tituloOriginal}</p>
-
-                    <p><strong>Gênero: </strong> {detalheFilme.generos}</p>
                     <p><strong>Produção: </strong> {detalheFilme.producao}</p>
-                    <p><strong>Duração: </strong> {detalheFilme.tempoDuracao}</p>
-                    <p><strong>Data de Lançamento: </strong> {detalheFilme.dataLancamento}</p>
-                    <p><strong>Sinopse: </strong> {detalheFilme.sinopse}</p>
-
-                    <p><strong>Classificação Indicativa: </strong> {dataIdade.idade} </p>
                     <p><strong>Lançamento no Cinema: </strong> {dataIdade.lancamentoCinema} </p>
-
                     <p><strong>Valor do Orçamento: </strong> {detalheFilme.valorOrcamento} </p>
-                    <p><strong>Valor do Bilheteria: </strong> {detalheFilme.valorBilheteria} </p>
-
+                    <p><strong>Valor do Bilheteria: </strong> {detalheFilme.valorBilheteria} </p> */}
 
                 </div>
             </div>

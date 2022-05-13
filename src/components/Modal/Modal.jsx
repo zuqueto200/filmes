@@ -22,22 +22,15 @@ export function Modal(props) {
             <Menu />
             <div className="containerModal">
 
-                <div className="contentModal">
+          
 
                     <DetalheFilme IDfilme={clickFilmes.id} />
 
-                    <hr />
-
-                    
+                    <ElencoFilmes IDfilme={clickFilmes.id} />
 
                     <Midia IDfilme={clickFilmes.id} />
 
-                    <hr />
-
-                    <ElencoFilmes IDfilme={clickFilmes.id} />
-
-
-                </div>
+ 
 
             </div>
         </>

@@ -1,4 +1,4 @@
-import React, { useState } from "react"
+import React, { useEffect, useState } from "react"
  import { PosterFilmes } from "./PosterFilmes"
 import { TrailerFilmes } from "./TrailerFilmes"
 import './style.css'
@@ -11,9 +11,7 @@ export function Midia(props) {
     const [botaoVideo, setBotaoVideo] = useState(true)
     const [botaoBackground, setBotaoBackground] = useState(false)
     const [botaoPoster, setBotaoPoster] = useState(false)
-
-
-
+ 
 
     return (
     

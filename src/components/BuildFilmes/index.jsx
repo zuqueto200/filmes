@@ -16,8 +16,6 @@ export function BuildFilmes(props) {
     return (
 
 
-
-
         <div className="container">
             <div className='contentBuild' >
 

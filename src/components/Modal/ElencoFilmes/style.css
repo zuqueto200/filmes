@@ -1,16 +1,30 @@
-.containerElenco {
+.containerElencoCentro {
   display: flex;
-  flex-wrap: wrap;
   justify-content: center;
+}
+.containerElenco {
+  width: 1000px;
+}
+.elencoPrincipal {
+  display: block;
+  padding: 20px 0;
+  font-weight: 600;
+  font-size: 22px;
+}
+.containerElencoPrincipal {
+  display: flex;
+
+  overflow-x: scroll;
+  height: 320px;
 }
 
 .contentElenco {
   background-color: white;
-  width: 100px;
-  height: 182px;
+  width: 150px;
+  height: 260px;
   margin: 5px;
   border-radius: 6px 6px 5px 5px;
-  box-shadow: 0 0 5px black ;
+  box-shadow: 0 0 5px black;
 
   color: black;
 }
@@ -20,17 +34,20 @@
 
 .nomeElenco {
   overflow: hidden;
-  width: 100px;
+  width: 150px;
   padding: 0 5px 5px 5px;
   display: flex;
   flex-direction: column;
   justify-content: center;
 }
 
+.nomeElenco strong {
+  color: rgb(0, 0, 0);
+}
 .nomeElenco p {
   padding: 0;
   margin: 0;
-  color: black;
+  color: rgb(54, 54, 54);
   font-size: 10px;
   overflow: hidden;
   text-overflow: ellipsis;
@@ -47,7 +64,8 @@
 
 .semImageElenco {
   font-size: 30px;
-  border-radius: 50%;
+  width: 150px;
+  height: 225px;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -56,9 +74,26 @@
 }
 .comImageElenco {
   border-radius: 5px 5px 0 0;
-  width: 100px;
-  height: 148px;
+  width: 150px;
+  height: 225px;
   object-fit: cover;
-  object-position: 0 5%; 
+  object-position: 0 5%;
   background-color: blueviolet;
+}
+
+.btElencoMostrarMais {
+  display: flex;
+  flex-direction: column;
+   
+  justify-content: center;
+  align-items: center;
+  min-width: 150px;
+  height: 260px;
+  background-color: rgba(255, 10, 10, 0.699);
+
+  margin: 5px;
+  border-radius: 6px 6px 5px 5px;
+  box-shadow: 0 0 5px black;
+  color: black;
+  cursor: pointer;
 }

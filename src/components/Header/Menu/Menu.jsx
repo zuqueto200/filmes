@@ -83,8 +83,6 @@ export function Menu() {
     return (
 
 
-
-
         <div className='contentMenu'>
 
             <div onClick={() => { FnTrocaLogoMenu() }}>

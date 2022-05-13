@@ -4,29 +4,34 @@ body {
   padding: 0;
   width: 100%;
   height: 100%;
+  margin: 0 0 300px 0;
 }
 
-p{
-  font-size: 20px;
+p , span{
+  margin: 0;
+  padding: 0;
+  color: white;
   font-family:Verdana, Geneva, Tahoma, sans-serif ;
 }
+
+
 .scroll1::-webkit-scrollbar {
   
-  height: 30px;
+  height: 20px;
    }
  
 
 .scroll1::-webkit-scrollbar-track {
  
   background: #d6d6d62f;
-  border-radius: 15px;
+  border-radius: 10px;
   height: 5px;
   width: 5px;
 }
 
 .scroll1::-webkit-scrollbar-thumb {
   background-color: #0011ff;
-  border-radius: 15px;
+  border-radius: 10px;
   
 }
  

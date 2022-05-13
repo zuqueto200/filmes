@@ -13,7 +13,7 @@ export function ElencoFilmes(props) {
                 var elenco = data.cast.slice(0, 10)
 
                 setpessoas(data)
-            
+
             })
     }
 
@@ -26,68 +26,58 @@ export function ElencoFilmes(props) {
 
     return (
 
-        <>
-            <p><strong>ELENCO: </strong></p>
-            <p><strong>DIREÇÃO: </strong></p>
-         
-            {pessoas.crew && (
-                <div>
-                    
-               { pessoas.crew.filter((e) => e).find((e) => e.job === 'Director').name}
-                {pessoas.crew.filter((e) => e).find((e) => e.job === 'Director').profile_path
-                
-                } 
-                </div>
-                
 
-                
-                )}
 
+        <div className="containerElencoCentro">
 
             <div className="containerElenco">
-                {pessoas.cast && (pessoas.cast.slice(0, 10).map((elenco) =>
+
+                <span className="elencoPrincipal">Elenco Principal</span>
+
+                <div className="containerElencoPrincipal scroll1">
+
+                    {pessoas.cast && (pessoas.cast.slice(0, 10).map((elenco) =>
 
 
-                    <div className="contentElenco" key={elenco.cast_id}>
+                        <div className="contentElenco" key={elenco.cast_id}>
+
+
+                            {elenco.profile_path === null ?
+
+                                <div className="contentSemImageElenco">
+                                    <div className="semImageElenco ">?</div>
+                                </div>
+                                :
+
+                                <div className="contentImageElenco">
+                                    <img className="comImageElenco" src={'https://image.tmdb.org/t/p/w500' + elenco.profile_path} alt={elenco.character} />
+                                </div>
+                            }
 
 
 
-
-                        {elenco.profile_path === null ?
-
-                            <div className="contentSemImageElenco">
-                                <div className="semImageElenco ">?</div>
+                            <div className="nomeElenco">
+                                <p> <strong>{elenco.name}</strong> </p>
+                                <p>  {elenco.character}</p>
                             </div>
-                            :
-
-                            <div className="contentImageElenco">
-                                <img className="comImageElenco" src={'https://image.tmdb.org/t/p/w500' + elenco.profile_path} alt={elenco.character} />
-                            </div>
-                        }
 
 
 
-                        <div className="nomeElenco">
-                            <p> <strong>{elenco.name}</strong> </p>
-                            <p>  {elenco.character}</p>
+
+
                         </div>
 
-
-
-
-
-                    </div> 
-
-
-
-
-
-                ))
-                }
-
+                    ))
+                    }
+                    <div className="btElencoMostrarMais" >
+                        <p>Mostar Mais</p>
+                        <p>{'(em construcao)'}</p>
+                    </div>
+                </div>
             </div>
+        </div>
 
-        </>
+
 
     )
 }
